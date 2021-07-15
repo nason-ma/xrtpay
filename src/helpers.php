@@ -1,12 +1,12 @@
 <?php
 
-use Spatie\ArrayToXml\ArrayToXml;
 use Mtownsend\XmlToArray\XmlToArray;
+use Spatie\ArrayToXml\ArrayToXml;
 
 function array_to_xml(array $array)
 {
     foreach ($array as $key => $value) {
-        $value = (string)$value;
+        $value = (string) $value;
         $array[$key] = ['_cdata' => $value];
     }
     $arrayToXml = new ArrayToXml($array, 'xml', true, 'UTF-8');
