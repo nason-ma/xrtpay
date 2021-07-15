@@ -77,6 +77,6 @@ class WeixinJsPay extends BaseXrtpay implements XrtpayInterface
 
     public static function getJsPayUrl($tokenId)
     {
-        return self::JS_PAY_URL . "?token_id={$tokenId}";
+        return self::JS_PAY_URL."?token_id={$tokenId}";
     }
 }
