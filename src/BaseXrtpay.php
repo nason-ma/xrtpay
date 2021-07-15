@@ -20,8 +20,7 @@ abstract class BaseXrtpay
 
     protected $payOptions = [
         'mch_id' => '',
-        'sub_appid' => '',
-        'notify_url' => '',
+        'out_trade_no' => '',
     ];
 
     public function __construct($key, array $options)

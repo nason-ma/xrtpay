@@ -21,11 +21,12 @@ class WeixinJsPay extends BaseXrtpay implements XrtpayInterface
     protected $service = 'pay.weixin.jspay';
 
     protected $jsPayOptions = [
-        'out_trade_no' => '',
+        'sub_appid' => '',
         'body' => '',
         'sub_openid' => '',
         'total_fee' => '',
         'mch_create_ip' => '',
+        'notify_url' => '',
     ];
 
     public function __construct($key, array $options)
