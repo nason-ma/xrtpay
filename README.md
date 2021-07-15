@@ -6,15 +6,54 @@
 ![GitHub](https://img.shields.io/github/license/nason-ma/xrtpay?label=license)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/nason-ma/xrtpay)
 
-## Installing
+## 安装
 
 ```shell
 $ composer require nason/xrtpay -vvv
 ```
 
-## Usage
+## 配置
 
-TODO
+在使用本扩展之前，需要获取到信瑞泰支付的相关秘钥，需要开通微信支付。
+
+## 使用
+
+```php
+use Nason\Xrtpay\Weixin\WeixinJsPay;
+use Nason\Xrtpay\Xrtpay;
+
+$payOptions = [
+    'mch_id'        => 'xxxxxxxxxx', // 信瑞泰商户号
+    'sub_appid'     => 'xxxxxxxxxx', // 微信公众号或者微信小程序 appid
+    'notify_url'    => 'http://127.0.0.1/notify', // 接收支付回调通知的url，需绝对路径，255字符内
+    'out_trade_no'  => 'xxxxxxxxxx', // 商户订单号
+    'body'          => '测试商品', // 商品描述
+    'sub_openid'    => 'xxxxxxxxxx', // 用户 openid
+    'total_fee'     => '123', // 支付金额，单位：分
+    'mch_create_ip' => '127.0.0.1', // 订单生成的机器 IP
+];
+$key = 'xxxxxxxxxx'; // 信瑞泰密钥
+$weixinJsPay = new WeixinJsPay($key, $payOptions);
+// 可设置其他非必需参数
+$weixinJsPay->attach('product')->raw()->limitCreditPay();
+try {
+    $result = Xrtpay::pay($weixinJsPay);
+} catch (\Exception $e) {
+    // todo
+}
+```
+
+## 获取公众账号 JS 支付 url
+
+```php
+use Nason\Xrtpay\Weixin\WeixinJsPay;
+
+$jsUrl = WeixinJsPay::getJsPayUrl($tokenId);
+```
+
+## 参考
+
+- [信瑞泰支付文档](http://doc.xrtinfo.com/docs/trade_and_orders/trade_and_orders-1bnl0kibtrvd6)
 
 ## Contributing
 
