@@ -29,7 +29,6 @@ class XrtpayReverse extends BaseXrtpay
     {
         $options = $this->getPayOptions();
         $options['sign'] = $this->getSign();
-        ksort($options);
         try {
             return Http::post($options);
         } catch (Exceptions\HttpException $e) {

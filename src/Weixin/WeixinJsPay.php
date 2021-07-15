@@ -71,7 +71,6 @@ class WeixinJsPay extends BaseXrtpay implements XrtpayInterface
     {
         $payOptions = $this->getPayOptions();
         $payOptions['sign'] = $this->getSign();
-        ksort($payOptions);
 
         return $payOptions;
     }

@@ -34,6 +34,7 @@ class Http
 
     public static function post(array $options)
     {
+        ksort($options);
         $optionsXml = array_to_xml($options);
 
         try {
