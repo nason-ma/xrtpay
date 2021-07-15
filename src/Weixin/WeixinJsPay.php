@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the nason/gw_supply_chain.
+ *
+ * (c) nason <mananxun99@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Nason\Xrtpay\Weixin;
 
 use Nason\Xrtpay\BaseXrtpay;
@@ -10,10 +19,10 @@ class WeixinJsPay extends BaseXrtpay implements XrtpayInterface
     protected $service = 'pay.weixin.jspay';
 
     protected $jsPayOptions = [
-        'out_trade_no'  => '',
-        'body'          => '',
-        'sub_openid'    => '',
-        'total_fee'     => '',
+        'out_trade_no' => '',
+        'body' => '',
+        'sub_openid' => '',
+        'total_fee' => '',
         'mch_create_ip' => '',
     ];
 
