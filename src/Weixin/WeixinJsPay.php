@@ -16,6 +16,8 @@ use Nason\Xrtpay\XrtpayInterface;
 
 class WeixinJsPay extends BaseXrtpay implements XrtpayInterface
 {
+    const JS_PAY_URL = 'http://pay.xrtpay.com/pay/jspay';
+
     protected $service = 'pay.weixin.jspay';
 
     protected $jsPayOptions = [
@@ -71,5 +73,10 @@ class WeixinJsPay extends BaseXrtpay implements XrtpayInterface
         ksort($payOptions);
 
         return $payOptions;
+    }
+
+    public static function getJsPayUrl($tokenId)
+    {
+        return self::JS_PAY_URL . "?token_id={$tokenId}";
     }
 }
