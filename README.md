@@ -2,6 +2,9 @@
 
 <p align="center"> 信瑞泰支付.</p>
 
+![StyleCI build status](https://github.styleci.io/repos/386177299/shield)
+![GitHub](https://img.shields.io/github/license/nason-ma/xrtpay?label=license)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/nason-ma/xrtpay)
 
 ## Installing
 
