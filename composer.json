@@ -17,6 +17,7 @@
         ]
     },
     "require": {
+        "php": ">=7.0",
         "spatie/array-to-xml": "2.15.0",
         "mtownsend/xml-to-array": "~2.0",
         "guzzlehttp/guzzle": "~6.5.5",
