@@ -1,15 +1,12 @@
 <?php
 
-
 namespace Nason\Xrtpay;
-
 
 use Nason\Xrtpay\Exceptions\InvalidArgumentException;
 use PragmaRX\Random\Random;
 
 abstract class BaseXrtpay
 {
-
     protected $key;
 
     protected $payOptions = [
@@ -112,7 +109,8 @@ abstract class BaseXrtpay
     {
         $payOptions = array_filter($this->getPayOptions());
         ksort($payOptions);
-        $payOptions = urldecode(http_build_query($payOptions)) . "&key={$this->key}";
+        $payOptions = urldecode(http_build_query($payOptions))."&key={$this->key}";
+
         return strtoupper(md5($payOptions));
     }
 

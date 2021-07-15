@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Nason\Xrtpay\Weixin;
-
 
 use Nason\Xrtpay\BaseXrtpay;
 use Nason\Xrtpay\XrtpayInterface;
@@ -25,7 +23,7 @@ class WeixinJsPay extends BaseXrtpay implements XrtpayInterface
         $this->jsPayOptions = array_intersect_key($options, $this->jsPayOptions);
     }
 
-    protected function setPayOption($key ,$value)
+    protected function setPayOption($key, $value)
     {
         if (!$value) {
             return;
@@ -62,6 +60,7 @@ class WeixinJsPay extends BaseXrtpay implements XrtpayInterface
         $payOptions = $this->getPayOptions();
         $payOptions['sign'] = $this->getSign();
         ksort($payOptions);
+
         return $payOptions;
     }
 }

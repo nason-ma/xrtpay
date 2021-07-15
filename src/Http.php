@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Nason\Xrtpay;
-
 
 use GuzzleHttp\Client;
 use Nason\Xrtpay\Exceptions\HttpException;
@@ -12,7 +10,7 @@ class Http
     protected static $url = 'http://pay.xrtpay.com/xrtpay/gateway';
 
     protected static $guzzleOptions = [
-        'Content-Type' => 'text/xml; charset=UTF8'
+        'Content-Type' => 'text/xml; charset=UTF8',
     ];
 
     public static function getHttpClient()
