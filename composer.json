@@ -1,0 +1,26 @@
+{
+    "name": "nason\/xrtpay",
+    "description": "xrtpay",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "nason-ma",
+            "email": "878826676@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Nason\\Xrtpay\\": "./src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "require": {
+        "spatie/array-to-xml": "2.15.0",
+        "mtownsend/xml-to-array": "~2.0",
+        "guzzlehttp/guzzle": "~6.5.5",
+        "pragmarx/random": "^0.2.2",
+        "ext-json": "*"
+    }
+}
