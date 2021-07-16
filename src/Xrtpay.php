@@ -18,7 +18,16 @@ class Xrtpay
         $payOptions = $xrtpay->getFullPayOptions();
 
         try {
-            return Http::post($payOptions);
+            $response = Http::post($payOptions);
+            if (isset($response['pay_info'])) {
+                $payInfo = json_decode($response['pay_info'], true);
+                if (isset($payInfo['timeStamp'])) {
+                    $payInfo['timestamp'] = $payInfo['timeStamp'];
+                    unset($payInfo['timeStamp']);
+                }
+                $response['pay_info'] = $payInfo;
+            }
+            return $response;
         } catch (Exceptions\HttpException $e) {
             throw $e;
         }
