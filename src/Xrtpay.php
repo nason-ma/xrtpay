@@ -27,6 +27,7 @@ class Xrtpay
                 }
                 $response['pay_info'] = $payInfo;
             }
+
             return $response;
         } catch (Exceptions\HttpException $e) {
             throw $e;
