@@ -62,6 +62,13 @@ class WeixinJsPay extends BaseXrtpay implements XrtpayInterface
         return $this;
     }
 
+    public function callbackUrl($callbackUrl)
+    {
+        $this->setPayOption('callback_url', $callbackUrl);
+
+        return $this;
+    }
+
     public function getService()
     {
         return $this->service;
