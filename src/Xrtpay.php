@@ -33,4 +33,21 @@ class Xrtpay
             throw $e;
         }
     }
+
+    public static function verifySign($key, array $data)
+    {
+        $sign = $data['sign'] ?? '';
+        if (empty($data) || !$sign) {
+            return false;
+        }
+        unset($data['sign']);
+        ksort($data);
+        $options = urldecode(http_build_query($data))."&key={$key}";
+        $verifySign = strtoupper(md5($options));
+        if ($sign === $verifySign) {
+            return true;
+        }
+
+        return false;
+    }
 }
