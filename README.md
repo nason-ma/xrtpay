@@ -32,10 +32,13 @@ $payOptions = [
     'total_fee'     => '123', // 支付金额，单位：分
     'mch_create_ip' => '127.0.0.1', // 订单生成的机器 IP
 ];
-$key = 'xxxxxxxxxx'; // 信瑞泰密钥
+// 信瑞泰密钥
+$key = 'xxxxxxxxxx'; 
+
 $weixinJsPay = new WeixinJsPay($key, $payOptions);
 // 可设置其他非必需参数
 $weixinJsPay->attach('product')->raw()->limitCreditPay();
+
 try {
     $result = Xrtpay::pay($weixinJsPay);
 } catch (\Exception $e) {
@@ -50,6 +53,40 @@ use Nason\Xrtpay\Weixin\WeixinJsPay;
 
 $jsUrl = WeixinJsPay::getJsPayUrl($tokenId);
 ```
+
+## 关闭支付订单
+
+```php
+use Nason\Xrtpay\XrtpayReverse;
+
+$options = [
+    'mch_id'       => 'xxxxxxxxxx', // 信瑞泰商户号
+    'out_trade_no' => 'xxxxxxxxxx', // 商户订单号
+];
+// 信瑞泰密钥
+$key = 'xxxxxxxxxx';
+
+$xrtpayReverse = new XrtpayReverse($key, $options);
+$result = $xrtpayReverse->reverse();
+```
+
+## 支付回调验签
+
+```php
+use Nason\Xrtpay\Xrtpay;
+
+// 信瑞泰密钥
+$key = 'xxxxxxxxxx'; 
+// 信瑞泰回调通知数据
+$notifyData = [];
+
+// true or false
+$result = Xrtpay::verifySign($key, $notifyData);
+```
+
+## 其他
+
+- 自己看着代码用吧，反正也就几个文件。
 
 ## 参考
 
